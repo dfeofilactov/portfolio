@@ -1,0 +1,19 @@
+@import 'colors'
+    
+$radius: 14px
+$small-radius: $radius * 2 / 1.618 / 1.618 / 1.618
+    
+.circle
+    width: $radius * 2
+    height: $radius * 2
+    border-radius: $radius
+    transform: rotate(100deg)
+    transition: all .3s ease
+    box-shadow: 0px 0px 15px 0px #000, 0px 0px 10px 2px darken($colorBlue, 10)
+    .sub-circle
+        width: $small-radius
+        height: $small-radius
+        border-radius: $small-radius / 2
+        transform: translate(-$small-radius, -$small-radius)
+    &:hover
+        box-shadow: 0px 0px 15px -5px #000, 0px 0px 60px 5px $colorBlue
