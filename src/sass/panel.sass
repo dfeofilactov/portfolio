@@ -2,5 +2,25 @@
     
 .panel
     display: flex
-    background: lighten($colorDark, 0)
+    background: $colorDark
     height: 90vh
+    width: 100%
+    z-index: 2
+    box-shadow: 0 0 30px 5px #000
+    .toolbar
+        display: flex
+        justify-content: flex-end
+        width: 100%
+        padding: 0 140px
+        bottom: 0
+        .btn-rotate
+            color: $colorBlue
+            &:hover
+                background-color: none
+                color: lighten($colorBlue, 5)
+    .cards
+        display: flex
+        width: 100%
+        height: 100%
+        padding: 70px 140px
+        perspective: 500px

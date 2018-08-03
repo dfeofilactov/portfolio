@@ -4,7 +4,7 @@
 $colorBlue: #2FA1AE;
 $colorLight: #FAF8F5;
 $colorText: rgb(221, 221, 221);
-$colorDark: #060e15;
+$colorDark: #050708;
 $colorGreen: rgb(40, 156, 112);
 //*****************************
 //
@@ -29,4 +29,11 @@ $colorGreen: rgb(40, 156, 112);
 }
 .art-fg-light{
     color: $colorLight;
+}
+// dark fore- and background
+.art-bg-dark{
+    background: $colorDark;
+}
+.art-fg-dark{
+    color: $colorDark;
 }

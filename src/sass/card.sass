@@ -1,0 +1,20 @@
+@import 'colors'
+    
+.card
+    width: 100%
+    height: 100%
+    min-height: 200px
+    background-color: $colorGreen
+    padding: 35px
+    transform: rotateX(30deg)
+    transform-style: preserve-3d;
+    transition: all .3s ease
+    &:hover
+        transform: rotateX(0deg)
+.plastic
+    opacity: .8
+    background-color: $colorLight
+.up
+    transform: rotateX(0deg)
+.down
+    transform: rotateX(40deg)

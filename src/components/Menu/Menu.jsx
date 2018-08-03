@@ -4,10 +4,10 @@ import Logo from '../Logo/Logo.jsx';
 class Menu extends Component {
     render() {
         return (
-            <div className='menu w-100'>
+            <div className='menu'>
                 <div className='logo flex-center'>
                     <p>
-                        Company
+                        Neptune
                     </p>
                 </div>
                 <div className='head flex-center'>
@@ -15,9 +15,9 @@ class Menu extends Component {
                 </div>
                 <div className='controls flex-center'>
                     <p className='tl-4'>
-                        name.
-                        <span className='art-fg-blue tl-6'>
-                            surname
+                        denis.
+                        <span className='art-fg-blue tl-5'>
+                            feofilaktov
                         </span>
                     </p>
                 </div>

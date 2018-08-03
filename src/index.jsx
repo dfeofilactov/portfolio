@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import './sass/main.sass';
 import Menu from './components/Menu/Menu.jsx';
 import Panel from './components/Panel/Panel.jsx';
