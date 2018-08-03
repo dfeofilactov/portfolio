@@ -3,11 +3,10 @@ import { IconButton, Icon } from '@material-ui/core';
 
 class Card extends Component {
     render() {
-        const { plastic } = this.props;
-        console.log(plastic);
+        const { material } = this.props;
         return (
-            <div className={ plastic ? 'card plastic art-fg-dark' : 'card art-fg-dark' }>
-                <p>{ plastic ? 'Plastic' : '' } Card</p>            
+            <div className={ 'card art-fg-dark ' + material || '' }>
+                <p>{ material || '' } card</p>            
             </div>
         );
     }

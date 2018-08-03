@@ -16,14 +16,14 @@ class Panel extends Component {
                         </div>
                     </div> 
                     <div className='row justify-content-between'>
-                        <div className='col m-3'>
+                        <div className='col m-4'>
                             <Card/>
                         </div>
-                        <div className='col m-3'>
-                            <Card plastic/>
+                        <div className='col m-4'>
+                            <Card material='plastic'/>
                         </div>
-                        <div className='col m-3'>
-                            <Card plastic/>
+                        <div className='col m-4'>
+                            <Card material='glass'/>
                         </div>
                     </div>               
                 </div>
