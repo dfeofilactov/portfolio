@@ -6,7 +6,7 @@ class Panel extends Component {
     render() {
         return (
             <div className='panel'>
-                <div className='container-fluid'>
+                <div className='container-fluid px-5'>
                     <div className='row justify-content-end'>
                     {/* Вынести в отдельный компонент */}
                         <div className='toolbar'>
@@ -15,17 +15,15 @@ class Panel extends Component {
                             </IconButton>
                         </div>
                     </div> 
-                    <div className='row'>
-                        <div className='cards'>
-                            <div className='col'>
-                                <Card/>
-                            </div>
-                            <div className='col'>
-                                <Card plastic/>
-                            </div>
-                            <div className='col'>
-                                <Card plastic/>
-                            </div>
+                    <div className='row justify-content-between'>
+                        <div className='col m-3'>
+                            <Card/>
+                        </div>
+                        <div className='col m-3'>
+                            <Card plastic/>
+                        </div>
+                        <div className='col m-3'>
+                            <Card plastic/>
                         </div>
                     </div>               
                 </div>
