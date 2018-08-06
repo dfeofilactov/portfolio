@@ -1,5 +1,14 @@
 import * as THREE from 'three';
 
+const colors = {
+    blue: 0x2FA1AE,
+    light: 0xFAF8F5,
+    text: 0xe0e0e0,
+    dark: 0x131414,
+    green: 0x38cf6a,
+    red:  0xff0040,
+};
+
 const NCanvas = (() => {
     //scene vars
     let scene, camera, container, renderer, light, light1;
@@ -12,7 +21,7 @@ const NCanvas = (() => {
         renderer = new THREE.WebGLRenderer({ alpha: true });
         container = document.getElementById('canvas-container');
         camera = new THREE.PerspectiveCamera(
-            75,
+            100,
             container.getBoundingClientRect().width/container.getBoundingClientRect().height,
             0.1,
             1000
@@ -20,17 +29,20 @@ const NCanvas = (() => {
         renderer.setSize( container.getBoundingClientRect().width, container.getBoundingClientRect().height );
         container.appendChild( renderer.domElement );  
 
-        geometry = new THREE.BoxGeometry( 3, 3, .3 );
-		material = new THREE.MeshDepthMaterial();
+        scene.fog = new THREE.Fog( colors.light, 0, 100 );
+        scene.background = new THREE.Color( colors.dark );
+
+        geometry = new THREE.BoxGeometry( 4, 4, .15 );
+        material = new THREE.MeshStandardMaterial( { color: colors.dark, roughness: 0.5, metalness: 1.0 } );
         cube = new THREE.Mesh( geometry, material );
 
         var sphere = new THREE.SphereGeometry( .1, 32, 32 );
-        light = new THREE.PointLight( 0xff0040, .5, 20 );
-        light.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xff0040 } ) ) );
+        light = new THREE.PointLight( colors.red, 2, 0, 2 );
+        light.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: colors.red } ) ) );
         scene.add( light );
 
-        light1 = new THREE.PointLight( 0xff0040, .5, 20 );
-        light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0x2FA1AE } ) ) );
+        light1 = new THREE.PointLight( colors.blue, 2, 0, 2 );
+        light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: colors.blue } ) ) );
         scene.add( light1 );
 
 		scene.add( cube );
@@ -55,9 +67,11 @@ const NCanvas = (() => {
     }
 
     function render() {
-        var time = Date.now() * 0.005;
-        //cube.rotation.x += 0.01;
-        cube.rotation.y += 0.05;
+        var speedObj = 0.03;
+        var speedLights = .5;
+        var time = Date.now() * 0.005 * speedLights;
+        //cube.rotation.x += speedObj;
+        cube.rotation.y += speedObj;
 
         light.position.x = Math.sin( time * 0.7 ) * 2.4;
         light.position.y = Math.cos( time * 0.5 ) * 3.2;
