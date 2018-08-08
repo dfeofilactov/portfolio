@@ -1,6 +1,6 @@
 import * as ActionTypes from '../../consts/actionTypes';
 
-export const Open = () => {
+export const OPEN = () => {
     return {
         type: ActionTypes.OPEN
     };

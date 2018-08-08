@@ -1,16 +1,19 @@
 @import 'colors'
+@import 'custom'
     
 .panel
     display: flex
-    height: 92vh
     width: 100%
+    height: $panel-h
     z-index: 2
     box-shadow: 0 0 40px 1px #000
     background: $colorDark
     .toolbar
         display: flex
         justify-content: flex-end
+        align-items: center
         width: 100%
+        height: calc(#{$panel-h} * 0.1)
         bottom: 0
         .btn-rotate
             color: $colorBlue
@@ -24,6 +27,24 @@
         padding: 70px 140px
         //perspective: 500px
     #canvas-container
+        display: flex
         width: 100%
-        height: 92vh
+        height: calc(#{$panel-h} * 0.9)
         background: $colorDark
+    .main-lbl
+        display: flex
+        align-items: center
+        top: 30%
+        width: 100%
+        justify-content: flex-start
+        position: absolute
+        .welcome-p
+            color: $colorBlue
+            font-size: $tl-0
+            @media #{$media-phones}
+                font-size: $tl-2
+        .where-p
+            color: $colorText
+            font-size: $tl-2
+            @media #{$media-phones}
+                font-size: $tl-5

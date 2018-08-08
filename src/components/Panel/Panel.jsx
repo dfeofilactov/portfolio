@@ -7,14 +7,12 @@ class Panel extends Component {
         return (
             <div className='panel'>
                 <div className='container-fluid px-0'>
-                    <div className='row justify-content-end m-0'>
-                    {/* Вынести в отдельный компонент */}
-                        <div className='toolbar'>
-                            {/* <IconButton className='btn-rotate'>
-                                <Icon>rotate_90_degrees_ccw</Icon>
-                            </IconButton> */}
-                        </div>
-                    </div> 
+                    <div className='main-lbl px-5'>
+                        <p>
+                            <span className='welcome-p'>Welcome</span>
+                            <span className='where-p'>to my portfolio</span>
+                        </p>
+                    </div>
                     <div className='row justify-content-between m-0'>
                         {/* <div className='col m-4'>
                             <Card/>
@@ -26,6 +24,14 @@ class Panel extends Component {
                             <Card material='glass'/>
                         </div> */}
                         <div id='canvas-container'></div>
+                    </div> 
+                    <div className='row justify-content-end m-0'>
+                    {/* Вынести в отдельный компонент */}
+                        <div className='toolbar px-5'>
+                            <IconButton className='btn-rotate'>
+                                <Icon>fingerprint</Icon>
+                            </IconButton>
+                        </div>
                     </div>               
                 </div>
             </div>

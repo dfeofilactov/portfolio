@@ -2,18 +2,19 @@ import * as THREE from 'three';
 
 const colors = {
     sun: 0xfff9e1,
-    blue: 0x2FA1AE,
+    blue: 0x1bbdd3,
     light: 0xFAF8F5,
     text: 0xe0e0e0,
     dark: 0x131414,
     green: 0x38cf6a,
-    red:  0xff0040,
+    red: 0xff0040,
+    neptune: 0x2DB1FF
     //#fff9e1
 };
 
 const NCanvas = (() => {
     //scene vars
-    let scene, camera, container, renderer, light, light1;
+    let scene, camera, container, renderer, light, triton;
 
     let geometry, material, cube;
 
@@ -23,11 +24,11 @@ const NCanvas = (() => {
     const Init = () => {
 
         scene = new THREE.Scene();
-    
+
         container = document.getElementById('canvas-container');
         camera = new THREE.PerspectiveCamera(
             100,
-            container.getBoundingClientRect().width/container.getBoundingClientRect().height,
+            container.getBoundingClientRect().width / container.getBoundingClientRect().height,
             0.1,
             1000
         );
@@ -38,74 +39,53 @@ const NCanvas = (() => {
         renderer.setSize(
             container.getBoundingClientRect().width,
             container.getBoundingClientRect().height
-        );        
-        container.appendChild( renderer.domElement );  
+        );
+        container.appendChild(renderer.domElement);
 
-        //scene.fog = new THREE.FogExp2( colors.light, 0.01);
+        //scene.fog = new THREE.FogExp2( colors.dark, 0.06);
         //scene.background = new THREE.Color( colors.dark );
 
-        geometry = new THREE.SphereGeometry( 1.5, 32, 32 );
+        geometry = new THREE.SphereGeometry(1.5, 32, 32);
         material = new THREE.MeshStandardMaterial({
-            color: colors.blue,
-            roughness: 1.0,
-            metalness: 0.0
+            color: colors.neptune,
+            roughness: 0.5,
+            metalness: 0.1
         });
-        cube = new THREE.Mesh( geometry, material );
+        cube = new THREE.Mesh(geometry, material);
 
-        var sphere = new THREE.SphereGeometry( .47, 32, 32 );
-        light = new THREE.SpotLight( 0xFFFFFF, 5, 100, 90, 1, 2 );
-        light.position.set( -40, 40, 40 );
+        let moon = new THREE.SphereGeometry(.29, 32, 32);
+        let sun = new THREE.SphereGeometry(1, 32, 32);
 
-        light.castShadow = true;
+        light = new THREE.PointLight(0xFFFFFF, 6, 60);
+        // light = new THREE.Mesh( sun, new THREE.MeshBasicMaterial({
+        //     color: colors.sun,
+        // }) );
+        light.position.set(50, 50, 50);
+        scene.add(light);
 
-        light.shadow.mapSize.width = 1024;
-        light.shadow.mapSize.height = 1024;
+        // light = new THREE.SpotLight( 0xFFFFFF, 2, 200, 120, 0, 0 );
+        // light.position.set( -40, 40, 40 );
 
-        light.shadow.camera.near = 500;
-        light.shadow.camera.far = 4000;
-        light.shadow.camera.fov = 30;
-        scene.add( light );
-
-        let moon = new THREE.SphereGeometry( .29, 32, 32 );
-        //light1 = new THREE.PointLight( colors.text, 2, 0, 2 );
-        light1 = new THREE.Mesh( moon, new THREE.MeshStandardMaterial({
+        scene.add(light);
+        triton = new THREE.Mesh(moon, new THREE.MeshStandardMaterial({
             color: colors.light,
-            roughness: 1.0,
-            metalness: 0.0
-        }) );
-        light1.position.x = 2;
-        light1.position.y = 2;
-        light1.position.z = 0;
-        scene.add( light1 );
-
-        scene.add( cube );
-
-        var pos = new THREE.Vector3();
-		var quat = new THREE.Quaternion();
-        
-        pos.set( 0, - 0.5, 0 );
-        quat.set( 0, 0, 0, 1 );
-        var ground = createParalellepiped(
-            40,
-            1,
-            40,
-            0,
-            pos,
-            quat,
-            new THREE.MeshPhongMaterial( { color: 0xFFFFFF } ) 
-        );
-        ground.castShadow = true;
-        ground.receiveShadow = true;
-        scene.add( ground );
+            roughness: 0.6,
+            metalness: 0.1
+        }));
+        triton.position.x = 2;
+        triton.position.y = 2;
+        triton.position.z = 0;
+        scene.add(triton);
+        scene.add(cube);
         camera.position.z = 6;
 
         animate();
 
-        window.addEventListener( 'resize', onWindowResize, false );
+        window.addEventListener('resize', onWindowResize, false);
     };
 
     const animate = () => {
-        requestAnimationFrame( animate );
+        requestAnimationFrame(animate);
         render();
     };
 
@@ -113,37 +93,30 @@ const NCanvas = (() => {
         let radius = 2;
 
 
-        var speedSun = .2;
-        var speedLights = .5;
-        var time = Date.now() * 0.005 * speedLights;
+        var speedSun = 1 / 100;
+        var speedTriton = 5 / 100;
+        var time = Date.now() * 0.005;
         //cube.rotation.x += speedObj;
         //cube.rotation.y += speedObj * Math.sin(time * .2);
 
-        // light.position.x = Math.sin( time * speedSun ) * 40;
-        // light.position.y = Math.sin( time * speedSun ) * -15;
-        // light.position.z = Math.cos( time * speedSun ) * 40;
+        light.position.x = Math.sin(time * speedSun) * 50;
+        light.position.y = Math.sin(time * speedSun) * -15;
+        light.position.z = Math.cos(time * speedSun) * 50;
 
-        // light1.position.x = Math.sin( time ) * radius;
-        // light1.position.y = Math.sin( time ) * radius;
-        // light1.position.z = Math.cos( time ) * radius;
-        // light1.position.y = Math.cos( time * 0.5 ) * 3.2;
-        // light1.position.z = Math.cos( time * 0.7 ) * 2.4;
+        triton.position.x = Math.sin(time * speedTriton) * radius;
+        triton.position.y = Math.sin(time * speedTriton) * radius;
+        triton.position.z = Math.cos(time * speedTriton) * radius;
 
-        renderer.render( scene, camera );
+        renderer.render(scene, camera);
     };
 
     const onWindowResize = () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.aspect = container.getBoundingClientRect().width / container.getBoundingClientRect().height;
         camera.updateProjectionMatrix();
         renderer.setSize(
             container.getBoundingClientRect().width,
             container.getBoundingClientRect().height
         );
-    };
-
-   const createParalellepiped = ( sx, sy, sz, mass, pos, quat, material ) => {
-        var threeObject = new THREE.Mesh( new THREE.BoxBufferGeometry( sx, sy, sz, 1, 1, 1 ), material );
-        return threeObject;
     };
 
     return {
