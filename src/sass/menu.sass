@@ -1,13 +1,15 @@
 @import 'colors'
+@import 'custom'
     
 .menu
     display: flex
     justify-content: space-between
-    height: 70px
+    height: $header-h
     width: 100%
-    padding: 0 140px
 
 .logo
+    @media #{$media-phones}
+        display: none !important
     height: 100%
 
 .head

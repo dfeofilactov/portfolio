@@ -7,7 +7,7 @@ class Menu extends Component {
             <div className='menu'>
                 <div className='logo flex-center'>
                     <p>
-                        Neptune
+                        Company
                     </p>
                 </div>
                 <div className='head flex-center'>
@@ -15,9 +15,9 @@ class Menu extends Component {
                 </div>
                 <div className='controls flex-center'>
                     <p className='tl-4'>
-                        denis.
+                        name.
                         <span className='art-fg-blue tl-5'>
-                            feofilaktov
+                            surname
                         </span>
                     </p>
                 </div>
