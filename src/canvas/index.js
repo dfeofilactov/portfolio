@@ -77,7 +77,7 @@ const NCanvas = (() => {
         triton.position.z = 0;
         scene.add(triton);
         scene.add(cube);
-        camera.position.z = 6;
+        camera.position.z = 5;
 
         animate();
 

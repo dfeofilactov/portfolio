@@ -9,8 +9,8 @@ class Panel extends Component {
                 <div className='container-fluid px-0'>
                     <div className='main-lbl px-5'>
                         <p>
-                            <span className='welcome-p'>Welcome</span>
-                            <span className='where-p'>to my portfolio</span>
+                            <span className='welcome-p #a-welcome'>Welcome</span>
+                            {/* <span className='where-p'>to my portfolio</span> */}
                         </p>
                     </div>
                     <div className='row justify-content-between m-0'>
