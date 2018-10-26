@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IconButton, Icon } from '@material-ui/core';
+import { IconButton, Icon, Button } from '@material-ui/core';
 import Card from '../Card/Card.jsx';
 
 class Panel extends Component {
@@ -32,7 +32,7 @@ class Panel extends Component {
                                 <Icon>fingerprint</Icon>
                             </IconButton>
                         </div>
-                    </div>               
+                    </div>
                 </div>
             </div>
         );
