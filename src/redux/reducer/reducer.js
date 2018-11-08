@@ -31,7 +31,7 @@ const viewReducer = createReducer(initialState, {
     },
     [ActionTypes.RESTORE](state, action) {
         const newState = state.container[action.id];
-        return newState;
+        return newState.viewReducer;
     },
 });
 
