@@ -8,7 +8,7 @@ const colors = {
     dark: 0x131414,
     green: 0x38cf6a,
     red: 0xff0040,
-    neptune: 0x1ab1c5
+    neptune: 0x2085c0
     //#fff9e1
 };
 
@@ -27,11 +27,12 @@ const NCanvas = (() => {
 
         container = document.getElementById('canvas-container');
         camera = new THREE.PerspectiveCamera(
-            100,
+            15,
             container.getBoundingClientRect().width / container.getBoundingClientRect().height,
             1,
-            100
+            1000
         );
+        // camera = new THREE.OrthographicCamera(-10, 10, 10, -10, -10, 100);
         renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.gammaInput = true;
         renderer.gammaOutput = true;
@@ -52,7 +53,7 @@ const NCanvas = (() => {
             metalness: 0
         });
         neptune = new THREE.Mesh(geometry, material);
-        moon = new THREE.SphereGeometry(.29, 32, 32);
+        moon = new THREE.SphereGeometry(.21, 32, 32);
 
         light = new THREE.PointLight(0xFFFFFF, 6, 60);
         // light = new THREE.Mesh( sun, new THREE.MeshBasicMaterial({
@@ -75,7 +76,8 @@ const NCanvas = (() => {
         triton.position.z = 0;
         scene.add(triton);
         scene.add(neptune);
-        camera.position.z = 4;
+        camera.position.z = 30;
+        camera.position.x = -5;
 
         animate();
 
@@ -88,8 +90,7 @@ const NCanvas = (() => {
     };
 
     const render = () => {
-        let radius = 1.8;
-
+        let radius = 2;
 
         var speedSun = 5 / 100;
         var speedTriton = 10 / 100;
