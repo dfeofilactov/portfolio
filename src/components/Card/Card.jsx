@@ -6,7 +6,7 @@ class Card extends Component {
         const { material } = this.props;
         return (
             <div className={ 'card art-fg-dark ' + material || '' }>
-                <p>{ material || '' } card</p>            
+                <p>{ material || '' } card</p>
             </div>
         );
     }

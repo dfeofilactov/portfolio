@@ -1,14 +1,14 @@
 import * as THREE from 'three';
 
 const colors = {
-    sun: 0xfff9e1,
-    blue: 0x1bbdd3,
-    light: 0xFAF8F5,
+    sun: 0xffffff,
+    blue: 0x1ab1c5,
+    light: 0xFFFFFF,
     text: 0xe0e0e0,
     dark: 0x131414,
     green: 0x38cf6a,
     red: 0xff0040,
-    neptune: 0x2DB1FF
+    neptune: 0x1ab1c5
     //#fff9e1
 };
 
@@ -16,7 +16,7 @@ const NCanvas = (() => {
     //scene vars
     let scene, camera, container, renderer, light, triton;
 
-    let geometry, material, cube;
+    let geometry, material, neptune, moon;
 
     /**
      * Инициализация Canvas
@@ -29,8 +29,8 @@ const NCanvas = (() => {
         camera = new THREE.PerspectiveCamera(
             100,
             container.getBoundingClientRect().width / container.getBoundingClientRect().height,
-            0.1,
-            1000
+            1,
+            100
         );
         renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.gammaInput = true;
@@ -48,13 +48,11 @@ const NCanvas = (() => {
         geometry = new THREE.SphereGeometry(1.5, 32, 32);
         material = new THREE.MeshStandardMaterial({
             color: colors.neptune,
-            roughness: 0.5,
-            metalness: 0.1
+            roughness: 0.8,
+            metalness: 0
         });
-        cube = new THREE.Mesh(geometry, material);
-
-        let moon = new THREE.SphereGeometry(.29, 32, 32);
-        let sun = new THREE.SphereGeometry(1, 32, 32);
+        neptune = new THREE.Mesh(geometry, material);
+        moon = new THREE.SphereGeometry(.29, 32, 32);
 
         light = new THREE.PointLight(0xFFFFFF, 6, 60);
         // light = new THREE.Mesh( sun, new THREE.MeshBasicMaterial({
@@ -69,15 +67,15 @@ const NCanvas = (() => {
         scene.add(light);
         triton = new THREE.Mesh(moon, new THREE.MeshStandardMaterial({
             color: colors.light,
-            roughness: 0.6,
-            metalness: 0.1
+            roughness: 0.8,
+            metalness: 0
         }));
         triton.position.x = 2;
         triton.position.y = 2;
         triton.position.z = 0;
         scene.add(triton);
-        scene.add(cube);
-        camera.position.z = 5;
+        scene.add(neptune);
+        camera.position.z = 4;
 
         animate();
 
@@ -90,11 +88,11 @@ const NCanvas = (() => {
     };
 
     const render = () => {
-        let radius = 2;
+        let radius = 1.8;
 
 
-        var speedSun = 1 / 100;
-        var speedTriton = 5 / 100;
+        var speedSun = 5 / 100;
+        var speedTriton = 10 / 100;
         var time = Date.now() * 0.005;
         //cube.rotation.x += speedObj;
         //cube.rotation.y += speedObj * Math.sin(time * .2);

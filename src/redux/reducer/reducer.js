@@ -39,4 +39,8 @@ const mainReducer = combineReducers({
     viewReducer
 });
 
+const viewReducer = (state, action) => {
+    console.log(action);
+};
+
 export default mainReducer;
