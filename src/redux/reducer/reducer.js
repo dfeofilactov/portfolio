@@ -6,7 +6,7 @@ const mainReducer = combineReducers({
 });
 
 const viewReducer = (state, action) => {
-    consolr.log(action);
+    console.log(action);
 };
 
 export default mainReducer;

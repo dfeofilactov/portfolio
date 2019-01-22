@@ -1,6 +1,6 @@
 @import 'colors'
 @import 'custom'
-    
+
 .panel
     display: flex
     width: 100%
@@ -33,18 +33,23 @@
         background: $colorDark
     .main-lbl
         display: flex
-        align-items: center
+        align-items: left
         top: 30%
         width: 100%
-        justify-content: flex-start
+        // justify-content: flex-start
+        flex-direction: column
         position: absolute
         .welcome-p
-            color: $colorBlue
+            // color: $colorBlue
+            font-weight: 900
             font-size: $tl-0
             @media #{$media-phones}
                 font-size: $tl-2
         .where-p
+            // color: $colorBlue
             color: $colorText
-            font-size: $tl-2
+            font-size: $tl-5
+            margin-top: 12px
+            // opacity: 0.6
             @media #{$media-phones}
                 font-size: $tl-5
