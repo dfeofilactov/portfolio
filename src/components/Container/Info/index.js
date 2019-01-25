@@ -4,7 +4,12 @@ import React, { Component } from 'react';
 class InfoPanel extends Component {
     render() {
         return (
-            <div className='page'>Info</div>
+            <div
+                id='info'
+                className='page'
+            >
+                {'Info'}
+            </div>
         );
     }
 }

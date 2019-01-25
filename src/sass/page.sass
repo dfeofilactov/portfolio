@@ -1,0 +1,24 @@
+@import 'colors'
+
+.page
+    height: 100vh
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 16vh
+    filter: invert(0)
+    transition: filter 1s ease
+    // transform: rotateX(-60deg)
+    &:hover
+        filter: invert(0.8)
+    // border: 200px solid $blue
+#welcome
+    border: 200px solid $green
+    color: $green
+#info
+    border: 200px solid $light
+    color: $light
+#about
+    border: 200px solid $blue
+    color: $blue

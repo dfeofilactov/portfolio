@@ -4,7 +4,12 @@ import React, { Component } from 'react';
 class WelcomePanel extends Component {
     render() {
         return (
-            <div className='page'>Welcome</div>
+            <div
+                id='welcome'
+                className='page'
+            >
+                {'Welcome'}
+            </div>
         );
     }
 }

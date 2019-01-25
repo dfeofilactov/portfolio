@@ -49,7 +49,7 @@ const NCanvas = (() => {
         const speedSun = 5 / 100;
         const speedTriton = 10 / 100;
         // var time = Date.now() * 0.005;
-        const time = 1548425382122 * 0.005;
+        const time = 1547800 * 0.005;
 
         light.position.x = Math.sin(time * speedSun) * 50;
         light.position.y = Math.sin(time * speedSun) * -15;

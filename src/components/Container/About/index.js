@@ -6,7 +6,12 @@ class About extends Component {
     render() {
         // const { test } = this.props;
         return (
-            <div className='page'>About</div>
+            <div
+                id='about'
+                className='page'
+            >
+                { 'About' }
+            </div>
         );
     }
 }
