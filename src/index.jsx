@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import NCanvas from './canvas';
 import './sass/main.sass';
 import Menu from './components/Menu/Menu.jsx';
-import Panel from './components/Panel/Panel.jsx';
+// import Panel from './components/Panel/Panel.jsx';
 import reducer from './redux/reducer/reducer';
+import Container from './components/Container/Container';
 
 class App extends Component {
     render() {
@@ -15,7 +15,8 @@ class App extends Component {
             <Provider store={ store }>
                 <div>
                     <header className='container-fluid px-5'><Menu /></header>
-                    <Panel />
+                    {/* <Panel /> */}
+                    <Container />
                 </div>
             </Provider>
         );
@@ -23,6 +24,4 @@ class App extends Component {
 }
 
 const app = document.getElementById('root');
-app ? ReactDOM.render(<App />, app) : false;
-
-NCanvas.Init();
+ReactDOM.render(<App />, app);

@@ -2,8 +2,15 @@ const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+const webpack = require('webpack');
+
 module.exports = {
     entry: './src/index.jsx',
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist',
+        hot: true
+    },
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
@@ -67,6 +74,7 @@ module.exports = {
         new HtmlWebPackPlugin({
           template: "./src/public/index.html",
           filename: "./index.html"
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
       ]
 };

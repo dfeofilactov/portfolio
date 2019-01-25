@@ -4,13 +4,11 @@ const Animations = (() => {
     const Start = () => {
         anime({
             targets: '#a-welcome',
-            translateX: 25
+            translateX: 25,
         });
     };
 
-    return {
-        Start
-    };
+    return { Start };
 })();
 
 export default Animations;

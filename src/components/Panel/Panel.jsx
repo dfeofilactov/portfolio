@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { IconButton, Icon, Button } from '@material-ui/core';
-import Card from '../Card/Card.jsx';
+// import { IconButton, Icon, Button } from '@material-ui/core';
+// import { connect } from 'react-redux';
+// import Card from '../Card/Card.jsx';
+// import { PLAY_CANVAS/*, OPEN */ } from '../../redux/actions/actions';
 
 class Panel extends Component {
+    componentDidMount() {
+        // this.props.dispatch(OPEN());
+    }
     render() {
         return (
             <div className='panel'>
@@ -23,10 +28,18 @@ class Panel extends Component {
                         <div className='col m-4'>
                             <Card material='glass'/>
                         </div> */}
-                        <div id='canvas-container'></div>
+                        <div
+                            id='canvas-container'
+                            role='presentation'
+                            onKeyDown={ () => { } }
+                            onClick={ () => {
+                                console.log('click');
+                                // this.props.dispatch(PLAY_CANVAS());
+                            } }
+                        />
                     </div>
                     <div className='row justify-content-end m-0'>
-                    {/* Вынести в отдельный компонент */}
+                        {/* Вынести в отдельный компонент */}
                         {/* <div className='toolbar px-5'>
                             <IconButton className='btn-rotate'>
                                 <Icon>fingerprint</Icon>
@@ -39,4 +52,9 @@ class Panel extends Component {
     }
 }
 
+// function select(store) {
+//     return {};
+// }
+
+// export default connect(select)(Panel);
 export default Panel;
